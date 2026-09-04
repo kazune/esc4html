@@ -1,18 +1,12 @@
 #!/bin/sh
-#
-# Usage : esc4html
-#
-# HTMLテキスト用エスケープ（生テキスト前提）
-#   & < > " ' をエンティティに変換
-# 注意
-#   既存エンティティは二重エスケープされる
-#   構造は解釈せず単純置換のみ
 
+# Keep this command stdin-only; never pass arguments through to sed.
 if [ "$#" -ne 0 ]; then
 	printf 'Usage: %s\n' "${0##*/}" >&2
 	exit 2
 fi
 
+# Always escape the five special characters; existing references are escaped again.
 exec sed \
 	-e 's/&/\&amp;/g' \
 	-e 's/</\&lt;/g' \
