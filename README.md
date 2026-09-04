@@ -55,7 +55,7 @@ HTMLのテキストとして埋め込む内容を対象としています。Java
 
 テストと静的検査の実行には、次のツールが必要です。
 
-- [Bats](https://github.com/bats-core/bats-core)
+- [Bats](https://github.com/bats-core/bats-core) 1.5.0以降
 - [ShellCheck](https://www.shellcheck.net/)
 - [shfmt](https://github.com/mvdan/sh)
 
