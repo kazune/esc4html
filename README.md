@@ -53,9 +53,21 @@ HTMLのテキストとして埋め込む内容を対象としています。Java
 - POSIX互換の `sh`
 - `sed`
 
-テストの実行には [Bats](https://github.com/bats-core/bats-core) が必要です。
+テストと静的検査の実行には、次のツールが必要です。
 
-## Test
+- [Bats](https://github.com/bats-core/bats-core)
+- [ShellCheck](https://www.shellcheck.net/)
+- [shfmt](https://github.com/mvdan/sh)
+
+## Test and lint
+
+すべての検査を実行します。
+
+```sh
+make check
+```
+
+Batsテストだけを実行する場合は、次のコマンドを使用します。
 
 ```sh
 make test

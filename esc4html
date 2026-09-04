@@ -9,13 +9,13 @@
 #   構造は解釈せず単純置換のみ
 
 if [ "$#" -ne 0 ]; then
-    printf 'Usage: %s\n' "${0##*/}" >&2
-    exit 2
+	printf 'Usage: %s\n' "${0##*/}" >&2
+	exit 2
 fi
 
 exec sed \
-    -e 's/&/\&amp;/g' \
-    -e 's/</\&lt;/g' \
-    -e 's/>/\&gt;/g' \
-    -e 's/"/\&quot;/g' \
-    -e "s/'/\&#39;/g"
+	-e 's/&/\&amp;/g' \
+	-e 's/</\&lt;/g' \
+	-e 's/>/\&gt;/g' \
+	-e 's/"/\&quot;/g' \
+	-e "s/'/\&#39;/g"
