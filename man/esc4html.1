@@ -1,0 +1,60 @@
+.TH ESC4HTML 1 "2026-09-04" "esc4html" "User Commands"
+.SH NAME
+esc4html \- escape text for inclusion in HTML
+.SH SYNOPSIS
+.B esc4html
+.SH DESCRIPTION
+.B esc4html
+reads text from standard input, escapes HTML special characters, and writes the
+result to standard output.
+It replaces
+.BR & ,
+.BR < ,
+.BR > ,
+.BR \(dq ,
+and
+.B \(aq
+with their corresponding character references.
+.PP
+Existing character references are escaped again.
+For example,
+.B &amp;
+becomes
+.BR &amp;amp; .
+.PP
+The command accepts no options or file operands.
+Use input redirection to read from a file.
+.PP
+.B esc4html
+does not parse or sanitize HTML.
+It does not provide escaping or validation for JavaScript, CSS, or URLs.
+.SH EXAMPLES
+Use the command in a pipeline:
+.PP
+.nf
+.RS
+somecmd | esc4html | somecmd
+.RE
+.fi
+.PP
+Escape a file:
+.PP
+.nf
+.RS
+esc4html < in.txt > out.txt
+.RE
+.fi
+.SH EXIT STATUS
+.TP
+.B 0
+The input was processed successfully.
+.TP
+.B 2
+One or more command-line arguments were supplied.
+.TP
+Other
+An error was reported by
+.BR sed (1).
+.SH SEE ALSO
+.BR sed (1),
+.BR sh (1)
