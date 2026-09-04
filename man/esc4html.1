@@ -27,7 +27,10 @@ Use input redirection to read from a file.
 .PP
 .B esc4html
 does not parse or sanitize HTML.
-It does not provide escaping or validation for JavaScript, CSS, or URLs.
+It can escape text for inclusion in HTML text nodes and ordinary quoted HTML
+attribute values.
+It does not validate attribute values that have their own syntax, such as URLs,
+CSS, or JavaScript.
 .SH EXAMPLES
 Use the command in a pipeline:
 .PP
@@ -51,9 +54,8 @@ The input was processed successfully.
 .TP
 .B 2
 One or more command-line arguments were supplied.
-.TP
-Other
-An error was reported by
+.PP
+Any other value indicates an error reported by
 .BR sed (1).
 .SH SEE ALSO
 .BR sed (1),
