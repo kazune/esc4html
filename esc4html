@@ -1,14 +1,21 @@
-#!/usr/bin/env -S sed -f
+#!/bin/sh
 #
-# Usage : esc4html [<file>]
+# Usage : esc4html
 #
 # HTMLテキスト用エスケープ（生テキスト前提）
 #   & < > " ' をエンティティに変換
 # 注意
 #   既存エンティティは二重エスケープされる
 #   構造は解釈せず単純置換のみ
-s/&/\&amp;/g
-s/</\&lt;/g
-s/>/\&gt;/g
-s/"/\&quot;/g
-s/'/\&#39;/g
+
+if [ "$#" -ne 0 ]; then
+    printf 'Usage: %s\n' "${0##*/}" >&2
+    exit 2
+fi
+
+exec sed \
+    -e 's/&/\&amp;/g' \
+    -e 's/</\&lt;/g' \
+    -e 's/>/\&gt;/g' \
+    -e 's/"/\&quot;/g' \
+    -e "s/'/\&#39;/g"
