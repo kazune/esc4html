@@ -72,3 +72,7 @@ Batsテストだけを実行する場合は、次のコマンドを使用しま�
 ```sh
 make test
 ```
+
+## License
+
+[MIT License](LICENSE)
