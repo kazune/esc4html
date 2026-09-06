@@ -34,6 +34,28 @@ printf '%s\n' '<p class="note">Tom & Jerry</p>' | ./esc4html
 
 コマンドライン引数は受け付けません。引数が指定された場合は、終了コード `2` で終了します。
 
+## Installation
+
+デフォルトでは、コマンドとmanページを `/usr/local` 以下へインストールします。
+
+```sh
+sudo make install
+```
+
+ユーザー単位でインストールする場合は、`PREFIX` を指定します。
+
+```sh
+make install PREFIX="$HOME/.local"
+```
+
+同じ `PREFIX` を指定してアンインストールできます。
+
+```sh
+make uninstall PREFIX="$HOME/.local"
+```
+
+パッケージ作成時など、一時的な配置先を前置する場合は `DESTDIR` を指定できます。
+
 ## 変換規則
 
 | 入力 | 出力 |
